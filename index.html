@@ -3,173 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaynicer Jullan | Plan2Gether Engineering Showcase</title>
-    <!-- Tailwind CSS for minimalist layouts -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons for premium visual syntax -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Plan2Gether - Academic Thesis Presentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #475569;
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #0A0A0B;
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 280px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            height: 100vh;
+            position: fixed;
+            overflow-y: auto;
+            padding: 2rem 1rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            padding: 0 0.5rem;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .nav-item a:hover, .nav-item.active a {
+            background: #eff6ff;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Main Content Frame */
+        main {
+            margin-left: 280px;
+            flex-1;
+            padding: 3rem 4rem;
+            max-width: 1100px;
+            width: calc(100% - 280px);
+        }
+
+        /* Typography & Layout elements */
+        header {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        .institution {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+
+        .author-meta {
+            margin-top: 1rem;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+
+        section {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--secondary);
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        p {
+            color: var(--secondary);
+            margin-bottom: 1.25rem;
+            text-align: justify;
+        }
+
+        blockquote {
+            background: #f1f5f9;
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 0.375rem 0.375rem 0;
+            font-style: italic;
+        }
+
+        /* Data Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.925rem;
+        }
+
+        th, td {
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Status Badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge-high { background: #fee2e2; color: #991b1b; }
+        .badge-med { background: #fef3c7; color: #92400e; }
+        .badge-low { background: #f0fdf4; color: #166534; }
+        .badge-pass { background: #dcfce7; color: #166534; }
+
+        /* Responsive Flow overrides */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            aside { width: 100%; height: auto; position: relative; padding: 1rem; }
+            main { margin-left: 0; width: 100%; padding: 1.5rem; }
+            h1 { font-size: 1.85rem; }
+            table { display: block; overflow-x: auto; }
         }
     </style>
 </head>
-<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- Mobile-First Experience Frame -->
-    <main class="max-w-md mx-auto bg-[#0F0E0F] min-h-screen shadow-2xl flex flex-col justify-between border-x border-neutral-900 relative">
-        
-        <!-- Top Bar Identity Block -->
-        <div class="px-6 pt-8 pb-4">
-            <div class="flex items-center space-x-4">
-                <div class="relative">
-                    <img src="jaynicer.png" alt="Jaynicer Jullan" class="w-16 h-16 object-cover rounded-full filter grayscale contrast-125 border border-neutral-800 shadow-xl bg-neutral-900">
-                    <div class="absolute bottom-0 right-0 bg-blue-500 w-3 h-3 rounded-full border-2 border-[#0F0E0F]"></div>
-                </div>
-                <div>
-                    <h1 class="text-lg font-bold tracking-tight text-white uppercase">Jaynicer Jullan</h1>
-                    <p class="text-xs text-neutral-500 font-mono">Software Engineer &bull; CGPA 3.54</p>
-                    <p class="text-[11px] text-neutral-400 mt-0.5">FCSIT, Universiti Malaysia Sarawak</p>
-                </div>
+    <!-- Sidebar Document Tree Navigator -->
+    <aside>
+        <div class="brand">
+            <i data-lucide="map-pin"></i>
+            <span>Plan2Gether System</span>
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#metadata"><i data-lucide="file-text"></i>Metadata</a></li>
+                <li class="nav-item"><a href="#abstract"><i data-lucide="book-open"></i>Abstract / Abstrak</a></li>
+                <li class="nav-item"><a href="#intro"><i data-lucide="help-circle"></i>1. Introduction</a></li>
+                <li class="nav-item"><a href="#literature"><i data-lucide="layers"></i>2. Literature Review</a></li>
+                <li class="nav-item"><a href="#analysis"><i data-lucide="git-branch"></i>3. Analysis & Design</a></li>
+                <li class="nav-item"><a href="#implementation"><i data-lucide="cpu"></i>4. Implementation</a></li>
+                <li class="nav-item"><a href="#testing"><i data-lucide="check-square"></i>5. Testing Suites</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Academic Document Container -->
+    <main>
+        <header id="metadata">
+            <div class="institution">Universiti Malaysia Sarawak (UNIMAS)</div>
+            <h1>Plan2Gether: Trip and Event Planning</h1>
+            <div class="author-meta">
+                <strong>Jaynicer Jullan Anak Angsun</strong> (Matric 84111)<br>
+                Bachelor of Computer Science with Honours (Software Engineering) | 2026<br>
+                Supervisor: Associate Professor Dr. Edwin anak Mit
             </div>
+        </header>
+
+        <!-- Chapter: Abstract & Abstrak -->
+        <section id="abstract">
+            <h2><i data-lucide="book-open"></i> Abstract / Abstrak</h2>
+            <h3>Abstract</h3>
+            <p><strong>Plan2Gether</strong> is a cross-platform mobile application developed using React Native to improve collaborative trip and event planning through a centralized digital platform. The project addresses the problem of fragmented planning processes caused by the use of multiple disconnected applications for communication, itinerary management, and expense tracking. Developed using the Agile methodology, the system integrates shared itineraries, real-time expense management, automated cost splitting, and tracking frameworks.</p>
+            <blockquote>Keywords: collaborative planning, mobile application, itinerary management, expense tracking, Agile methodology</blockquote>
             
-            <!-- Sleek Minimalist Separator Line -->
-            <div class="h-[1px] w-full bg-gradient-to-r from-neutral-800 via-neutral-700 to-transparent mt-6"></div>
-        </div>
+            <h3>Abstrak</h3>
+            <p>Plan2Gether ialah aplikasi mudah alih merentas platform yang dibina menggunakan React Native bagi memudahkan perancangan perjalanan dan acara secara kolaboratif melalui satu platform digital berpusat. Sistem ini dibangunkan menggunakan metodologi Agile yang menekankan pembangunan berperingkat, penambahbaikan berterusan dan penyesuaian mengikut keperluan pengguna.</p>
+        </section>
 
-        <!-- Scrollable Project Interface Data -->
-        <div class="px-6 space-y-6 flex-grow">
+        <!-- Chapter 1: Introduction -->
+        <section id="intro">
+            <h2><i data-lucide="help-circle"></i> Chapter 1: Introduction</h2>
+            <h3>1.1 Problem Statement</h3>
+            <p>Planning group trips or events becomes inefficient when participants rely on multiple disconnected platforms such as messaging apps, spreadsheets, calendars, and expense-splitting tools. This fragmentation often causes travel details to become scattered across independent networks, making update retrieval error-prone and stressful during live coordination window periods.</p>
             
-            <!-- App Headline Banner -->
-            <section class="space-y-2">
-                <span class="text-[10px] uppercase font-mono tracking-widest text-blue-400 font-semibold">Flagship Capstone System</span>
-                <div class="relative overflow-hidden bg-gradient-to-br from-neutral-900 to-[#121114] border border-neutral-800 rounded-2xl p-6">
-                    <div class="absolute -right-16 -top-16 w-32 h-32 bg-blue-700/10 blur-3xl rounded-full pointer-events-none"></div>
-                    
-                    <div class="flex items-baseline justify-between mb-2">
-                        <h2 class="text-2xl font-extrabold text-white tracking-tighter">Plan2Gether</h2>
-                        <span class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider">v1.0 Live</span>
-                    </div>
-                    
-                    <p class="text-sm text-neutral-400 leading-relaxed font-light">
-                        A collaborative mobile architecture engineered to eliminate modern group coordination friction by synchronizing scattered planning workflows into a single cross-platform ecosystem.
-                    </p>
-                </div>
-            </section>
+            <h3>1.2 Core Project Objectives</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Objective Pillar</th>
+                        <th>Target System Capability</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Financial Management</strong></td>
+                        <td>Centralize ledger inputs, automate cost distribution, and offer debt settlements to reduce conflicts.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Collaborative Time Management</strong></td>
+                        <td>Provide instant timeline adjustments synchronized across all group devices concurrently.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Historical Archiving</strong></td>
+                        <td>Preserve older itineraries and absolute spending models cleanly for future reference.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Analytical Reporting</strong></td>
+                        <td>Generate explicit structural metric summaries parsing location distributions and itemized trends.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-            <!-- Technical Environment Matrix -->
-            <section class="space-y-3">
-                <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">System Architecture</h3>
-                <div class="grid grid-cols-2 gap-2">
-                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
-                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Frontend Client</span>
-                        <span class="text-xs text-white font-medium flex items-center">
-                            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> React Native[cite: 3]
-                        </span>
-                    </div>
-                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
-                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Backend Infrastructure</span>
-                        <span class="text-xs text-white font-medium flex items-center">
-                            <i data-lucide="server" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> PHP API[cite: 3]
-                        </span>
-                    </div>
-                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
-                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Relational Database</span>
-                        <span class="text-xs text-white font-medium flex items-center">
-                            <i data-lucide="database" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> MySQL Cloud[cite: 3]
-                        </span>
-                    </div>
-                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
-                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Version Control</span>
-                        <span class="text-xs text-white font-medium flex items-center">
-                            <i data-lucide="git-branch" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> Git Architecture[cite: 3]
-                        </span>
-                    </div>
-                </div>
-            </section>
+        <!-- Chapter 2: Literature Review -->
+        <section id="literature">
+            <h2><i data-lucide="layers"></i> Chapter 2: Literature Review</h2>
+            <p>A historical structural landscape verification evaluates existing digital solutions to establish architectural performance baselines:</p>
+            <ul>
+                <li><strong>Tricount (2010):</strong> Excellent structural ledger parsing capability, but isolates calculations entirely away from itinerary components.</li>
+                <li><strong>TripIt (2006):</strong> Efficient passive parsing of emails to aggregate individual schedules, but lacks robust group interfaces and offers no expense tools.</li>
+                <li><strong>Travefy (2012):</strong> Rich item layout mechanics for travel agencies, but suffers from complex user-interface patterns that hinder casual group use.</li>
+            </ul>
+        </section>
 
-            <!-- Refined 2-Module Engineering Breakdown -->
-            <section class="space-y-3">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">Core Engineering Modules</h3>
-                    <span class="text-[10px] font-mono text-neutral-600">02 Units</span>
-                </div>
-                <div class="space-y-2">
-                    
-                    <!-- Module 1 -->
-                    <div class="p-4 bg-gradient-to-r from-neutral-900 via-[#111013] to-transparent border-l-2 border-indigo-500 space-y-1">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="calendar" class="w-4 h-4 text-white"></i>
-                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">1. Itinerary Management System</h4>
-                        </div>
-                        <p class="text-xs text-neutral-500 leading-relaxed pl-6">
-                            Architected for high-fidelity, real-time synchronization. Handles concurrent event inputs and logs chronologically structured timelines smoothly across active clients[cite: 3].
-                        </p>
-                    </div>
-
-                    <!-- Module 2 -->
-                    <div class="p-4 bg-gradient-to-r from-neutral-900 via-[#111013] to-transparent border-l-2 border-indigo-500 space-y-1">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="wallet" class="w-4 h-4 text-white"></i>
-                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">2. Shared Expense & Budget Analytics</h4>
-                        </div>
-                        <p class="text-xs text-neutral-500 leading-relaxed pl-6">
-                            Implements algebraic split matrices that instantly minimize multi-party debt edges while compiling localized data archives for historical tracking[cite: 3].
-                        </p>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Dynamic Academic Credentials & Track Record -->
-            <section class="space-y-3">
-                <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">Engineering Record</h3>
-                <div class="space-y-2 text-xs">
-                    <div class="flex justify-between items-center bg-[#141317] border border-neutral-800 p-2.5 rounded-lg">
-                        <span class="text-neutral-400 font-medium">PayNet Akar Hackathon</span>
-                        <span class="text-[10px] font-mono text-amber-500 uppercase bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900/50">Hustler Award Winner[cite: 3]</span>
-                    </div>
-                    <div class="flex justify-between items-center bg-[#141317] border border-neutral-800 p-2.5 rounded-lg">
-                        <span class="text-neutral-400 font-medium">Hock Seng Lee Berhad</span>
-                        <span class="text-[10px] font-mono text-neutral-400 uppercase bg-neutral-800 px-2 py-0.5 rounded">Software Intern[cite: 3]</span>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-
-        <!-- Technical Interface & Action Anchors -->
-        <div class="p-6 bg-[#131215] border-t border-neutral-900 space-y-3">
+        <!-- Chapter 3: Analysis & Design -->
+        <section id="analysis">
+            <h2><i data-lucide="git-branch"></i> Chapter 3: Analysis Process & Design</h2>
+            <p>Using structural requirements elicitation, clear user stories are mapped out and organized into a Product Backlog matrix.</p>
             
-            <!-- Quick Code Link Engine -->
-            <div class="grid grid-cols-2 gap-2 text-center text-xs font-mono">
-                <!-- Direct Source Link -->
-                <a href="https://github.com/Jayjullan/Plan2Gether.git" target="_blank" class="p-3 bg-neutral-900 hover:bg-neutral-800 rounded-xl border border-neutral-800 transition text-white flex items-center justify-center space-x-2">
-                    <i data-lucide="github" class="w-4 h-4 text-neutral-400"></i>
-                    <span>Source Code</span>
-                </a>
-                <!-- System Documentation Link Placeholder -->
-                <a href="Jaynicer Jullan Resume.pdf" target="_blank" class="p-3 bg-neutral-900 hover:bg-neutral-800 rounded-xl border border-neutral-800 transition text-white flex items-center justify-center space-x-2">
-                    <i data-lucide="file-text" class="w-4 h-4 text-neutral-400"></i>
-                    <span>Technical Report</span>
-                </a>
-            </div>
+            <h3>Product Backlog Sample Metrics</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User Persona Description</th>
+                        <th>Priority Badge</th>
+                        <th>Acceptance Validation Metric</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>US01</td>
+                        <td>As a travel coordinator, I want to create or join group spaces seamlessly.</td>
+                        <td><span class="badge badge-high">High</span></td>
+                        <td>Generate dynamic shortcodes allowing secure profile onboarding structures.</td>
+                    </tr>
+                    <tr>
+                        <td>US02</td>
+                        <td>As a traveling peer, I want to log categorized shared expenses transparently.</td>
+                        <td><span class="badge badge-high">High</span></td>
+                        <td>Render precise cost splits with clean mathematical visualizations immediately.</td>
+                    </tr>
+                    <tr>
+                        <td>US04</td>
+                        <td>As a travel agent, I want to quickly pull historical templates from old trips.</td>
+                        <td><span class="badge badge-med">Medium</span></td>
+                        <td>Retain full data tracking configurations after trip milestones wrap up.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-            <!-- Prominent Project Interactivity Button -->
-            <a href="mailto:84111@siswa.unimas.my?subject=Plan2Gether%20Technical%20Inquiry" class="w-full relative overflow-hidden group bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-xl shadow-blue-950/50">
-                <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
-                <span class="tracking-wider uppercase">Request System Demo</span>
-            </a>
+        <!-- Chapter 4: Implementation -->
+        <section id="implementation">
+            <h2><i data-lucide="cpu"></i> Chapter 4: System Implementation</h2>
+            <p>The client interface relies on <strong>React Native (v0.81.5)</strong> and <strong>Expo SDK 54</strong> to maintain smooth single-codebase cross-platform deployment. Back-end logic execution runs using the <strong>Flight PHP</strong> micro-framework, sending payload structures securely to a relational <strong>MySQL</strong> database cluster.</p>
             
-            <p class="text-[9px] text-center font-mono text-neutral-600">
-                Verified Architecture via "Jaynicer Jullan Resume.pdf" &bull; FCSIT 2026[cite: 3]
-            </p>
-        </div>
+            <h3>Core System API Interaction Models</h3>
+            <p>When recording financial metrics, the client application passes values to the cloud layer via asynchronous requests:</p>
+            <blockquote>
+                <strong>Frontend Payload Handshake Example:</strong><br>
+                <code>fetch(API + "add_expense.php", { method: "POST", body: JSON.stringify({ tripID, amount, description }) })</code>
+            </blockquote>
+        </section>
 
+        <!-- Chapter 5: Testing Suites -->
+        <section id="testing">
+            <h2><i data-lucide="check-square"></i> Chapter 5: Testing Verification</h2>
+            <p>Functional validations ensure execution tracks correctly against requirements. Core system workflows verified during evaluation include:</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test ID</th>
+                        <th>Target System Module</th>
+                        <th>Scenario Flow Input Context</th>
+                        <th>Expected Behavior Response</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TC01</td>
+                        <td>User Authentication Engine</td>
+                        <td>Provide valid encrypted credential inputs.</td>
+                        <td>Initialize state variables and render main app dashboard.</td>
+                        <td><span class="badge badge-pass">Pass</span></td>
+                    </tr>
+                    <tr>
+                        <td>TC03</td>
+                        <td>Trip Space Initialization</td>
+                        <td>Pass clean title string configuration ("KL Trip").</td>
+                        <td>Generate safe 6-character access token in database.</td>
+                        <td><span class="badge badge-pass">Pass</span></td>
+                    </tr>
+                    <tr>
+                        <td>UT05</td>
+                        <td>Automatic Bill Splitting Logic</td>
+                        <td>Total: RM100.00 distributed across 4 active users.</td>
+                        <td>Assert precise calculation value of RM25.00 per person.</td>
+                        <td><span class="badge badge-pass">Pass</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
 
-    <!-- Run Lucide Engine -->
+    <!-- Lucide Icons Initialization Script -->
     <script>
         lucide.createIcons();
     </script>
