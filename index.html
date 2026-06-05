@@ -3,170 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaynicer Jullan | Software Engineering Showcase</title>
-    <!-- Tailwind CSS for modern, sleek layouts -->
+    <title>Jaynicer Jullan | Plan2Gether Engineering Showcase</title>
+    <!-- Tailwind CSS for modern interactive structure -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons for clean iconography -->
+    <!-- Lucide Icons for aesthetic UI markers -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0A0A0B;
+        }
+        /* Smooth subtle gradient background text accent */
+        .text-gradient {
+            background: linear-gradient(135deg, #A0ACDC 0%, #4A5DB5 50%, #2238A4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+<body class="text-slate-300 antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- Main Mobile-Optimized Container -->
-    <main class="max-w-md mx-auto bg-white min-h-screen shadow-xl flex flex-col justify-between border-x border-slate-100 relative">
+    <!-- Mobile Screen Frame Inspired by Florent Biffi Layout -->
+    <main class="max-w-md mx-auto bg-[#0F0E0F] min-h-screen shadow-2xl flex flex-col justify-between border-x border-neutral-900 relative">
         
-        <div>
-            <!-- Hero Header Section Area -->
-            <div class="bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-950 text-white px-6 pt-10 pb-8 rounded-b-[2.5rem] shadow-md relative">
-                <div class="flex flex-col items-center text-center">
-                    
-                    <!-- Profile Image Frame -->
-                    <div class="relative mb-4">
-                        <img src="jaynicer.png" alt="Jaynicer Jullan" class="w-24 h-24 object-cover rounded-full border-4 border-white/20 shadow-lg bg-slate-800">
-                        <div class="absolute bottom-0 right-0 bg-emerald-500 w-4 h-4 rounded-full border-2 border-blue-900" title="Available for opportunities"></div>
-                    </div>
-
-                    <h1 class="text-2xl font-bold tracking-tight">Jaynicer Jullan</h1>
-                    <p class="text-blue-200 text-sm font-medium mt-0.5">Anak Angsun</p>
-                    
-                    <div class="mt-2 text-xs text-blue-100/80 font-mono tracking-wide">
-                        CGPA: 3.54 &bull; MUET Band 4.5
-                    </div>
-
-                    <div class="mt-4 px-3 py-1 bg-white/10 rounded-full text-xs text-blue-100 backdrop-blur-md border border-white/10">
-                        B. Software Engineering (Hons) | UNIMAS
-                    </div>
+        <!-- Header & Core Identity -->
+        <div class="px-6 pt-8 pb-4">
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <img src="jaynicer.png" alt="Jaynicer Jullan" class="w-16 h-16 object-cover rounded-full filter grayscale contrast-125 border border-neutral-800 shadow-xl bg-neutral-900">
+                    <div class="absolute bottom-0 right-0 bg-blue-500 w-3 h-3 rounded-full border-2 border-[#0F0E0F]"></div>
                 </div>
-            </div>
-
-            <!-- Main Content Area -->
-            <div class="p-6 space-y-6">
-
-                <!-- Elite Achievements Bar -->
-                <section class="grid grid-cols-3 gap-2 text-center">
-                    <div class="p-2.5 bg-amber-50 border border-amber-100 rounded-xl">
-                        <div class="text-amber-600 flex justify-center mb-1"><i data-lucide="award" class="w-4 h-4"></i></div>
-                        <p class="text-[10px] font-bold text-amber-900 leading-tight">PayNet Hustler Award</p>
-                    </div>
-                    <div class="p-2.5 bg-blue-50 border border-blue-100 rounded-xl">
-                        <div class="text-blue-600 flex justify-center mb-1"><i data-lucide="graduation-cap" class="w-4 h-4"></i></div>
-                        <p class="text-[10px] font-bold text-blue-900 leading-tight">Dean's List Recipient</p>
-                    </div>
-                    <div class="p-2.5 bg-purple-50 border border-purple-100 rounded-xl">
-                        <div class="text-purple-600 flex justify-center mb-1"><i data-lucide="palette" class="w-4 h-4"></i></div>
-                        <p class="text-[10px] font-bold text-purple-900 leading-tight">Carlo Rino UI Finalist</p>
-                    </div>
-                </section>
-                
-                <!-- Flagship Final Year Project -->
-                <section class="space-y-3">
-                    <div class="flex items-center space-x-2 text-blue-950">
-                        <i data-lucide="stars" class="w-5 h-5 text-blue-900"></i>
-                        <h2 class="text-base font-bold tracking-tight">Featured Capstone Project</h2>
-                    </div>
-                    
-                    <div class="bg-gradient-to-r from-blue-50/80 to-indigo-50/50 border border-blue-100 rounded-2xl p-5 space-y-3">
-                        <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-extrabold text-blue-950 tracking-tight">Plan2Gether</h3>
-                            <span class="bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider">Live System</span>
-                        </div>
-                        <p class="text-xs text-slate-600 leading-relaxed">
-                            A collaborative trip and event planning mobile application that solves group friction. Features shared itinerary construction, split-expense tracking, budgeting analytics, and historical trip archiving.
-                        </p>
-                        <div class="flex flex-wrap gap-1.5 pt-1">
-                            <span class="bg-white px-2 py-0.5 rounded text-[10px] text-slate-600 font-medium border border-slate-200">React Native</span>
-                            <span class="bg-white px-2 py-0.5 rounded text-[10px] text-slate-600 font-medium border border-slate-200">PHP</span>
-                            <span class="bg-white px-2 py-0.5 rounded text-[10px] text-slate-600 font-medium border border-slate-200">MySQL</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Professional Industry Experience -->
-                <section class="space-y-3">
-                    <div class="flex items-center space-x-2 text-slate-900">
-                        <i data-lucide="briefcase" class="w-4 h-4 text-slate-500"></i>
-                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500">Industry Experience</h3>
-                    </div>
-                    <div class="relative pl-4 border-l-2 border-slate-200 space-y-1">
-                        <div class="absolute -left-[6px] top-1.5 w-2.5 h-2.5 bg-blue-900 rounded-full"></div>
-                        <div class="flex justify-between items-start">
-                            <h4 class="text-sm font-bold text-slate-900">Software Engineer Intern</h4>
-                            <span class="text-[10px] font-medium bg-slate-100 px-2 py-0.5 rounded text-slate-500">2025</span>
-                        </div>
-                        <p class="text-xs text-slate-600 font-medium">Hock Seng Lee Berhad</p>
-                        <p class="text-[11px] text-slate-500 leading-relaxed">Hands-on corporate software development, architecting IT solutions, agile issue resolution, and cross-functional team delivery.</p>
-                    </div>
-                </section>
-
-                <!-- Technical Skills Categorized -->
-                <section class="space-y-3">
-                    <div class="flex items-center space-x-2 text-slate-900">
-                        <i data-lucide="code-2" class="w-4 h-4 text-slate-500"></i>
-                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500">Technical Toolkit</h3>
-                    </div>
-                    <div class="space-y-2.5 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                        <div>
-                            <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">Languages</span>
-                            <p class="text-xs text-slate-700 font-medium">JavaScript, PHP, Python, Java, C, C++, HTML, CSS</p>
-                        </div>
-                        <div class="border-t border-slate-200/60 pt-2">
-                            <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">Mobile & Frameworks</span>
-                            <p class="text-xs text-slate-700 font-medium">React Native, Flutter</p>
-                        </div>
-                        <div class="border-t border-slate-200/60 pt-2">
-                            <span class="text-[11px] uppercase font-bold tracking-wider text-slate-400 block mb-1">Data & Architecture</span>
-                            <p class="text-xs text-slate-700 font-medium">SQL, MySQL, Firebase, Git, Agile (Scrum)</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Other Selected Projects -->
-                <section class="space-y-2">
-                    <div class="flex items-center space-x-2 text-slate-900">
-                        <i data-lucide="folder-git-2" class="w-4 h-4 text-slate-500"></i>
-                        <h3 class="text-sm font-bold uppercase tracking-wider text-slate-500">Other Projects</h3>
-                    </div>
-                    <div class="grid grid-cols-2 gap-2">
-                        <div class="p-3 bg-white border border-slate-200 rounded-xl">
-                            <h4 class="text-xs font-bold text-slate-900">UNIMAS Shop Prototype</h4>
-                            <p class="text-[11px] text-slate-500 mt-0.5">E-commerce UI project focused on accessibility mappings.</p>
-                        </div>
-                        <div class="p-3 bg-white border border-slate-200 rounded-xl">
-                            <h4 class="text-xs font-bold text-slate-900">Interactive Game (Java)</h4>
-                            <p class="text-[11px] text-slate-500 mt-0.5">Object-oriented paradigm teaching basic system concepts.</p>
-                        </div>
-                    </div>
-                </section>
-
-            </div>
-        </div>
-
-        <!-- Sticky Footer Interactive Bar -->
-        <div class="p-4 bg-slate-900 text-white rounded-t-3xl shadow-2xl space-y-3">
-            <div class="flex items-center justify-between px-2">
-                <div class="flex items-center space-x-2">
-                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-blue-400"></i>
-                    <span class="text-xs text-slate-300">Kota Samarahan, Sarawak</span>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <i data-lucide="phone" class="w-3.5 h-3.5 text-blue-400"></i>
-                    <span class="text-xs text-slate-300">+6017-8477923</span>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white uppercase">Jaynicer Jullan</h1>
+                    <p class="text-xs text-neutral-500 font-mono">Software Engineer &bull; CGPA 3.54</p>
+                    <p class="text-[11px] text-neutral-400 mt-0.5">FCSIT, Universiti Malaysia Sarawak</p>
                 </div>
             </div>
             
-            <a href="mailto:84111@siswa.unimas.my" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs py-3 px-4 rounded-xl transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-blue-900/40">
-                <i data-lucide="mail" class="w-4 h-4"></i>
-                <span>Request Project Documentation</span>
+            <!-- Structural Line Division -->
+            <div class="h-[1px] w-full bg-gradient-to-r from-neutral-800 via-neutral-700 to-transparent mt-6"></div>
+        </div>
+
+        <!-- Main Product Deep-Dive Content -->
+        <div class="px-6 space-y-6 flex-grow">
+            
+            <!-- Primary App Headliner Block -->
+            <section class="space-y-2">
+                <span class="text-[10px] uppercase font-mono tracking-widest text-blue-400 font-semibold">Flagship Capstone Project</span>
+                <div class="relative overflow-hidden bg-gradient-to-br from-neutral-900 to-[#121114] border border-neutral-800 rounded-2xl p-6">
+                    <!-- Background Soft Ambient Glow -->
+                    <div class="absolute -right-16 -top-16 w-32 h-32 bg-blue-700/10 blur-3xl rounded-full pointer-events-none"></div>
+                    
+                    <div class="flex items-baseline justify-between mb-2">
+                        <h2 class="text-2xl font-extrabold text-white tracking-tighter">Plan2Gether</h2>
+                        <span class="text-[10px] text-neutral-500 font-mono uppercase tracking-wider">v1.0 Hosted</span>
+                    </div>
+                    
+                    <p class="text-sm text-neutral-400 leading-relaxed font-light">
+                        A robust, collaborative mobile ecosystem designed to centralize group trip dynamics. It completely mitigates group friction by unifying fractured logistics into a singular data workflow.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Technical App Architecture Map -->
+            <section class="space-y-3">
+                <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">System Architecture & Stack</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
+                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Frontend Layer</span>
+                        <span class="text-xs text-white font-medium flex items-center">
+                            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> React Native
+                        </span>
+                    </div>
+                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
+                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Backend Infrastructure</span>
+                        <span class="text-xs text-white font-medium flex items-center">
+                            <i data-lucide="server" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> PHP Engine
+                        </span>
+                    </div>
+                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
+                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Relational Database</span>
+                        <span class="text-xs text-white font-medium flex items-center">
+                            <i data-lucide="database" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> MySQL Cloud
+                        </span>
+                    </div>
+                    <div class="p-3 bg-neutral-900/60 border border-neutral-800/80 rounded-xl">
+                        <span class="text-[10px] text-neutral-500 font-mono block mb-1">Target Environments</span>
+                        <span class="text-xs text-white font-medium flex items-center">
+                            <i data-lucide="layers" class="w-3.5 h-3.5 text-indigo-400 mr-1.5"></i> iOS & Android
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Granular Feature Mechanics breakdown -->
+            <section class="space-y-3">
+                <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">Engineering Modules</h3>
+                <div class="space-y-2">
+                    
+                    <div class="p-3.5 bg-gradient-to-r from-neutral-900 to-transparent border-l-2 border-indigo-500 flex items-start space-x-3">
+                        <i data-lucide="calendar" class="w-4 h-4 text-neutral-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Dynamic Itinerary Synchronization</h4>
+                            <p class="text-xs text-neutral-500 mt-0.5">Real-time collaborative event builders handling asynchronous state data smoothly across devices.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-gradient-to-r from-neutral-900 to-transparent border-l-2 border-indigo-500 flex items-start space-x-3">
+                        <i data-lucide="pie-chart" class="w-4 h-4 text-neutral-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Optimized Bill Settlement Engine</h4>
+                            <p class="text-xs text-neutral-500 mt-0.5">Algorithmic expense-sharing matrix models to reduce transacting overhead within groups.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-3.5 bg-gradient-to-r from-neutral-900 to-transparent border-l-2 border-indigo-500 flex items-start space-x-3">
+                        <i data-lucide="archive" class="w-4 h-4 text-neutral-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <h4 class="text-xs font-bold text-white uppercase tracking-wider">Historical Analytics Archiving</h4>
+                            <p class="text-xs text-neutral-500 mt-0.5">Data parsing modules allowing groups to query historical trend metrics and clone past trip pipelines.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Vetted Validation & Engineering Pedigree -->
+            <section class="space-y-3">
+                <h3 class="text-xs font-mono font-bold text-neutral-500 uppercase tracking-widest">Developer Credentials</h3>
+                <div class="space-y-2 text-xs">
+                    <div class="flex justify-between items-center bg-[#141317] border border-neutral-800 p-2.5 rounded-lg">
+                        <span class="text-neutral-400 font-medium">PayNet Hackathon Winner</span>
+                        <span class="text-[10px] font-mono text-amber-500 uppercase bg-amber-950/40 px-2 py-0.5 rounded border border-amber-900/50">Hustler Award</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#141317] border border-neutral-800 p-2.5 rounded-lg">
+                        <span class="text-neutral-400 font-medium">Hock Seng Lee Berhad</span>
+                        <span class="text-[10px] font-mono text-neutral-400 uppercase bg-neutral-800 px-2 py-0.5 rounded">Software Intern</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-[#141317] border border-neutral-800 p-2.5 rounded-lg">
+                        <span class="text-neutral-400 font-medium">Carlo Rino UI/UX Competition</span>
+                        <span class="text-[10px] font-mono text-indigo-400 uppercase bg-indigo-950/40 px-2 py-0.5 rounded border border-indigo-900/50">National Finalist</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Call to Action Interface Area -->
+        <div class="p-6 bg-[#131215] border-t border-neutral-900 space-y-4">
+            
+            <!-- Quick Link Hub Grid -->
+            <div class="grid grid-cols-2 gap-2 text-center text-xs font-mono">
+                <a href="mailto:84111@siswa.unimas.my" class="p-2.5 bg-neutral-900 hover:bg-neutral-800 rounded-lg border border-neutral-800 transition text-white flex items-center justify-center space-x-1.5">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-neutral-400"></i>
+                    <span>Email Sync</span>
+                </a>
+                <div class="p-2.5 bg-neutral-900 rounded-lg border border-neutral-800 text-neutral-400 flex items-center justify-center space-x-1.5">
+                    <i data-lucide="terminal" class="w-3.5 h-3.5 text-neutral-500"></i>
+                    <span>Git Repository</span>
+                </div>
+            </div>
+
+            <!-- Florent Biffi Inspired Contrast Accent Button -->
+            <a href="mailto:84111@siswa.unimas.my?subject=Plan2Gether%20Inquiry" class="w-full relative overflow-hidden group bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 text-white font-bold text-xs py-3.5 px-4 rounded-xl transition-all duration-300 flex items-center justify-center space-x-2 shadow-xl shadow-blue-950/50">
+                <i data-lucide="play" class="w-3.5 h-3.5 fill-white"></i>
+                <span class="tracking-wider uppercase">Request Technical Demonstration</span>
             </a>
+            
+            <p class="text-[9px] text-center font-mono text-neutral-600">
+                Data Compiled From "Jaynicer Jullan Resume.pdf" &bull; FCSIT Symposium 2026
+            </p>
         </div>
 
     </main>
 
-    <!-- Initializing Lucide Icons -->
+    <!-- Activate Visual Engine Icons -->
     <script>
         lucide.createIcons();
     </script>
